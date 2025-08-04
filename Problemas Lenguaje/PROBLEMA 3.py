@@ -15,11 +15,11 @@ class AutocompletarArbol:
             nodo = nodo.children[letra]
         nodo.is_end_of_word = True
 
-    def _dfs(self, nodo, prefix, resultados):
+    def buscar_palabras(self, nodo, prefix, resultados):
         if nodo.is_end_of_word:
             resultados.append(prefix)
         for letra, child in nodo.children.items():
-            self._dfs(child, prefix + letra, resultados)
+            self.buscar_palabras(child, prefix + letra, resultados)
 
     def autocomplete(self, prefix):
         nodo = self.root
@@ -28,7 +28,7 @@ class AutocompletarArbol:
                 return []  # No hay coincidencias
             nodo = nodo.children[letra]
         resultados = []
-        self._dfs(nodo, prefix, resultados)
+        self.buscar_palabras(nodo, prefix, resultados)
         return resultados
     
 
@@ -43,5 +43,6 @@ print(trie.autocomplete("car"))  # ['carro', 'carta', 'carbon']
 print(trie.autocomplete("do"))   # ['dog', 'door', 'dove']
 print(trie.autocomplete("z"))    # []
 print(trie.autocomplete(""))     # Todas las palabras
+
 
 
