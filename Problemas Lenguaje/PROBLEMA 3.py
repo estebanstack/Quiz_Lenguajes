@@ -38,9 +38,10 @@ for palabra in palabras:
     trie.insert(palabra)
 
 # Pruebas de autocompletar
-print(trie.autocomplete("ca"))   # ['car', 'cart', 'carbon', 'cat']
-print(trie.autocomplete("car"))  # ['car', 'cart', 'carbon']
+print(trie.autocomplete("ca"))   # ['carro', 'carta', 'carbon', 'cat']
+print(trie.autocomplete("car"))  # ['carro', 'carta', 'carbon']
 print(trie.autocomplete("do"))   # ['dog', 'door', 'dove']
 print(trie.autocomplete("z"))    # []
 print(trie.autocomplete(""))     # Todas las palabras
+
 
